@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@color/light_green"
     tools:context=".MainActivity">
 
     <ListView
         android:id="@+id/listaEquipos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@android:color/white"
+        android:divider="@color/dark_green"
         android:dividerHeight="0.5dp"
-        android:background="@android:color/black"
+        android:background="@color/light_green"
         android:textColor="@android:color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,6 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="@android:color/white"
-        app:backgroundTint="@android:color/holo_red_dark" />
+        app:backgroundTint="@color/blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

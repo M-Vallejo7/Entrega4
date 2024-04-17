@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_green"
     tools:context=".AddQuoteActivity">
 
     <EditText
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:padding="12dp"
-        android:hint="Autor"
+        android:hint="Presidente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEquipo" />
@@ -43,10 +44,10 @@
         android:id="@+id/botonAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Agregar"
+        android:text="Agregar Equipo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:backgroundTint="@android:color/holo_red_dark"
+        app:backgroundTint="@color/blue"
         app:tint="@android:color/white"
         app:layout_constraintTop_toBottomOf="@+id/editTextCategoria" />
 
