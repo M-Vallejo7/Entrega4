@@ -25,7 +25,7 @@ public class AdaptadorEquipos extends ArrayAdapter<HashMap<String, String>> {
         TextView texto2 = (TextView) vista.findViewById(android.R.id.text2);
 
         texto1.setText(listaDeEquipos.get(posicion).get("equipo"));
-        texto2.setText(listaDeEquipos.get(posicion).get("presidente") + ", " + listaDeEquipos.get(posicion).get("categoria"));
+        texto2.setText(listaDeEquipos.get(posicion).get("liga") + ", " + listaDeEquipos.get(posicion).get("categoria"));
 
         return vista;
     }

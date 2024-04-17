@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 public class AddQuoteActivity extends AppCompatActivity{
     private EditText editTextEquipo;
-    private EditText editTextPresidente;
+    private EditText editTextLiga;
     private EditText editTextCategoria;
     private Button botonAgregar;
 
@@ -27,7 +27,7 @@ public class AddQuoteActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add_quote);
 
         editTextEquipo = (EditText) findViewById(R.id.editTextEquipo);
-        editTextPresidente = (EditText) findViewById(R.id.editTextPresidente);
+        editTextLiga = (EditText) findViewById(R.id.editTextLiga);
         editTextCategoria = (EditText) findViewById(R.id.editTextCategoria);
         botonAgregar = (Button) findViewById(R.id.botonAgregar);
 
@@ -36,32 +36,32 @@ public class AddQuoteActivity extends AppCompatActivity{
             public void onClick(View view) {
 
                 String equipo = editTextEquipo.getText().toString();
-                String presidente = editTextPresidente.getText().toString();
+                String liga = editTextLiga.getText().toString();
                 String categoria = editTextCategoria.getText().toString();
 
                 if (equipo.isEmpty()){
                     editTextEquipo.setError("Agregue un equipo por favor");
                     return;
                 }
-                if (presidente.isEmpty()){
-                    editTextPresidente.setError("Agregue un presidente por favor");
+                if (liga.isEmpty()){
+                    editTextLiga.setError("Agregue la liga en la que participa el equipo");
                     return;
                 }
                 if (categoria.isEmpty()){
-                    editTextCategoria.setError("Agregue una categoría por favor");
+                    editTextCategoria.setError("Agregue una categoría en donde el equipo clasificó");
                     return;
                 }
 
-                agregarEquipoABD(equipo, presidente, categoria);
+                agregarEquipoABD(equipo, liga, categoria);
             }
         });
     }
 
-    private void agregarEquipoABD(String equipo, String presidente, String categoria) {
+    private void agregarEquipoABD(String equipo, String liga, String categoria) {
 
         HashMap<String, Object> equipoHashmap = new HashMap<>();
         equipoHashmap.put("equipo", equipo);
-        equipoHashmap.put("presidente", presidente);
+        equipoHashmap.put("liga", liga);
         equipoHashmap.put("categoria", categoria);
 
         FirebaseDatabase baseDeDatos = FirebaseDatabase.getInstance();
@@ -75,7 +75,7 @@ public class AddQuoteActivity extends AppCompatActivity{
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(AddQuoteActivity.this, "Agregado", Toast.LENGTH_SHORT).show();
                 editTextEquipo.getText().clear();
-                editTextPresidente.getText().clear();
+                editTextLiga.getText().clear();
                 editTextCategoria.getText().clear();
             }
         });
