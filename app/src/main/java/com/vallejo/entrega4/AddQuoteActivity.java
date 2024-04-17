@@ -26,22 +26,19 @@ public class AddQuoteActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_quote);
 
-        //bind views
         editTextEquipo = (EditText) findViewById(R.id.editTextEquipo);
         editTextPresidente = (EditText) findViewById(R.id.editTextPresidente);
         editTextCategoria = (EditText) findViewById(R.id.editTextCategoria);
         botonAgregar = (Button) findViewById(R.id.botonAgregar);
 
-        //listener
         botonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //get text
+
                 String equipo = editTextEquipo.getText().toString();
                 String presidente = editTextPresidente.getText().toString();
                 String categoria = editTextCategoria.getText().toString();
 
-                //check if empty
                 if (equipo.isEmpty()){
                     editTextEquipo.setError("Agregue un equipo por favor");
                     return;
@@ -55,20 +52,18 @@ public class AddQuoteActivity extends AppCompatActivity{
                     return;
                 }
 
-                //add to database
                 agregarEquipoABD(equipo, presidente, categoria);
             }
         });
     }
 
     private void agregarEquipoABD(String equipo, String presidente, String categoria) {
-        //create a hashmap
+
         HashMap<String, Object> equipoHashmap = new HashMap<>();
         equipoHashmap.put("equipo", equipo);
         equipoHashmap.put("presidente", presidente);
         equipoHashmap.put("categoria", categoria);
 
-        //Instanciar la conexión con la base de datos
         FirebaseDatabase baseDeDatos = FirebaseDatabase.getInstance();
         DatabaseReference referenciaEquipos = baseDeDatos.getReference("equipos");
 

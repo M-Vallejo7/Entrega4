@@ -16,7 +16,7 @@ public class DatabaseManager {
         return listaDeEquipos;
     }
     public void cargarEquiposDeDB(final AdaptadorEquipos adaptadorEquipos) {
-        //instantiate database connection
+
         FirebaseDatabase baseDeDatos = FirebaseDatabase.getInstance();
         DatabaseReference referenciaEquipos = baseDeDatos.getReference("equipos");
 
@@ -30,10 +30,9 @@ public class DatabaseManager {
                 }
                 adaptadorEquipos.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError errorBaseDeDatos) {
-                //handle databaseError
+
             }
         });
     }
